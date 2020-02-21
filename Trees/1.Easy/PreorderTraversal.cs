@@ -2,7 +2,7 @@
 
 namespace Trees
 {
-	public class Class1
+	public class PreorderTraversal
 	{
 	}
 }

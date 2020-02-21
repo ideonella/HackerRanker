@@ -11,17 +11,20 @@ namespace LinkedLists
 			ChallengeTitle = "Insert at Head of a Linked List";
 		}
 
-		static void Solve(SinglyLinkedListNode head)
-		{
-			// The solution to this one is to complete method "insertNodeAtHead"
-		}
-
-		static SinglyLinkedListNode insertNodeAtHead(SinglyLinkedListNode llist, int data)
+		/// <summary>
+		/// You’re given the pointer to the head node of a linked list and an integer 
+		/// to add to the list. Create a new node with the given integer, 
+		/// insert this node at the head of the linked list and return the new head node. 
+		/// </summary>
+		/// <param name="llist"></param>
+		/// <param name="data"></param>
+		/// <returns></returns>
+		static SinglyLinkedListNode Solve(SinglyLinkedListNode llist, int data)
 		{
 			SinglyLinkedListNode headNew = new SinglyLinkedListNode(data);
 			if (llist == null)
 			{
-				llist = headNew;
+				headNew = llist;
 			}
 			else
 			{
@@ -42,7 +45,7 @@ namespace LinkedLists
 			for (int i = 0; i < llistCount; i++)
 			{
 				int llistItem = Convert.ToInt32(reader.ReadLine());
-				SinglyLinkedListNode llist_head = insertNodeAtHead(llist.head, llistItem);
+				SinglyLinkedListNode llist_head = Solve(llist.head, llistItem);
 				llist.head = llist_head;
 
 			}

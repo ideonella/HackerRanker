@@ -1,53 +1,60 @@
-using HackerRankCtrl;
+﻿using HackerRankCtrl;
 using System;
 using System.IO;
 
 namespace LinkedLists
 {
-  public class InsertAtSpecPos : HackerRankController
+  public class DeleteANode : HackerRankController
   {
-    public InsertAtSpecPos()
+    public DeleteANode()
     {
-      ChallengeTitle = "Insert at specific position of a Linked List";
+      ChallengeTitle = "Delete a node at specific position of a Linked List";
     }
 
     /// <summary>
-    /// You�re given the pointer to the head node of a linked list, an integer to 
-    /// add to the list and the position at which the integer must be inserted. 
-    /// Create a new node with the given integer, insert this node 
-    /// at the desired position and return the head node. 
+    /// You’re given the pointer to the head node of a linked list and the position 
+    /// of a node to delete. Delete the node at the given position and return the head node. 
     /// </summary>
     /// <param name="head"></param>
-    /// <param name="data"></param>
     /// <param name="position"></param>
     /// <returns></returns>
-    static SinglyLinkedListNode Solve(SinglyLinkedListNode head, int data, int position)
+    static SinglyLinkedListNode Solve(SinglyLinkedListNode head, int position)
     {
-      SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
-
-      if (position == 1)
+      if (position == 0)
       {
-        newNode.next = head;
-        return newNode;
+        if (head.next == null)
+        {
+          head = null;
+        }
+        else
+        {
+          head = head.next;
+        }
       }
       else
       {
-        SinglyLinkedListNode current = head;
-        int i = 1;
-        while (i < position)
+        SinglyLinkedListNode previous = head;
+        int i = 0;
+        while (i < position - 1)
         {
-          current = current.next;
+          previous = previous.next;
           i++;
         }
-        newNode.next = current.next;
-        current.next = newNode;
+        if (previous.next.next == null)
+        {
+          previous.next = null;
+        }
+        else
+        {
+          previous.next = previous.next.next;
+        }
       }
       return head;
     }
 
     public override void CompleteChallenge()
     {
-      using StreamReader reader = new StreamReader(@"InsertAtSpecPos.txt");
+      using StreamReader reader = new StreamReader(@"DeleteANode.txt");
 
       SinglyLinkedList llist = new SinglyLinkedList();
 
@@ -59,11 +66,9 @@ namespace LinkedLists
         llist.InsertNode(llistItem);
       }
 
-      int data = Convert.ToInt32(reader.ReadLine());
-
       int position = Convert.ToInt32(reader.ReadLine());
 
-      SinglyLinkedListNode llist_head = Solve(llist.head, data, position);
+      SinglyLinkedListNode llist_head = Solve(llist.head, position);
 
       PrintSinglyLinkedList(llist_head, " ");
     }

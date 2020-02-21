@@ -9,15 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Problem Solving", "Problem 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arrays", "Arrays\Arrays.csproj", "{18362FBA-2C63-4688-AE24-AB833E39F466}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerRankCtrl", "HackerRankCtrl\HackerRankCtrl.csproj", "{CC74A849-6959-4981-BE8D-29F1B26D77E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HackerRankCtrl", "HackerRankCtrl\HackerRankCtrl.csproj", "{CC74A849-6959-4981-BE8D-29F1B26D77E0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functional Programming", "Functional Programming", "{36DF4BD7-3410-4F62-862D-D42CBFBE78FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedLists", "LinkedLists\LinkedLists.csproj", "{E4A40C8C-CC89-4599-BC17-08DF7AC20ACF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedLists", "LinkedLists\LinkedLists.csproj", "{E4A40C8C-CC89-4599-BC17-08DF7AC20ACF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trees", "Trees\Trees.csproj", "{E7FA0A9D-16B2-4EFE-91FA-D2D29847700E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trees", "Trees\Trees.csproj", "{E7FA0A9D-16B2-4EFE-91FA-D2D29847700E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalancedTrees", "BalancedTrees\BalancedTrees.csproj", "{612226AF-DF21-4B62-A3CC-BA4D10E65E4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BalancedTrees", "BalancedTrees\BalancedTrees.csproj", "{612226AF-DF21-4B62-A3CC-BA4D10E65E4D}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TreesAlt", "TreesAlt\TreesAlt.pyproj", "{DAAD0108-0EC7-4784-B988-AA58A8E156D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,8 @@ Global
 		{612226AF-DF21-4B62-A3CC-BA4D10E65E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{612226AF-DF21-4B62-A3CC-BA4D10E65E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{612226AF-DF21-4B62-A3CC-BA4D10E65E4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAAD0108-0EC7-4784-B988-AA58A8E156D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAAD0108-0EC7-4784-B988-AA58A8E156D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
