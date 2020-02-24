@@ -8,7 +8,7 @@ namespace LinkedLists
 	{
 		public InsertAtHead()
 		{
-			ChallengeTitle = "Insert at Head of a Linked List";
+			ChallengeTitle = "Insert at Head of a linked list";
 		}
 
 		/// <summary>

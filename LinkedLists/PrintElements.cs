@@ -8,7 +8,7 @@ namespace LinkedLists
 	{
 		public PrintElements()
 		{
-			ChallengeTitle = "Print the Elements of a Linked List";
+			ChallengeTitle = "Print the Elements of a linked list";
 		}
 
 		static void Solve(SinglyLinkedListNode head)

@@ -45,6 +45,11 @@ namespace Sandbox
 			hackerRankControllers.Add(new LinkedLists.DeleteANode());
 			hackerRankControllers.Add(new LinkedLists.PrintInReverse());
 			hackerRankControllers.Add(new LinkedLists.CompareLinkedLists());
+			hackerRankControllers.Add(new LinkedLists.MergeSortedLLists());
+			hackerRankControllers.Add(new LinkedLists.GetANodeValue());
+			hackerRankControllers.Add(new LinkedLists.DeleteAdjDup());
+			hackerRankControllers.Add(new LinkedLists.FindMergePoint());
+			hackerRankControllers.Add(new LinkedLists.InsertDLList());
 
 			Console.WriteLine("++ BEGIN LINKED LIST CHALLENGES ++");
 			foreach (HackerRankController ctrl in hackerRankControllers)

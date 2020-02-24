@@ -4,73 +4,64 @@ using System.IO;
 
 namespace LinkedLists
 {
-  public class DeleteANode : HackerRankController
+  public class DeleteAdjDup : HackerRankController
   {
-    public DeleteANode()
+    public DeleteAdjDup()
     {
-      ChallengeTitle = "Delete a node at a specific position of a linked list";
+      ChallengeTitle = "Delete adjacent duplicates from a linked list";
     }
 
     /// <summary>
-    /// You’re given the pointer to the head node of a linked list and the position 
-    /// of a node to delete. Delete the node at the given position and return the head node. 
+    /// You're given the pointer to the head node of a sorted linked list, 
+    /// where the data in the nodes is in ascending order. Delete as few nodes 
+    /// as possible so that the list does not contain any value more than once. 
+    /// The given head pointer may be null indicating that the list is empty.
     /// </summary>
     /// <param name="head"></param>
-    /// <param name="position"></param>
     /// <returns></returns>
-    static SinglyLinkedListNode Solve(SinglyLinkedListNode head, int position)
+    static SinglyLinkedListNode Solve(SinglyLinkedListNode head)
     {
-      if (position == 0)
+      SinglyLinkedListNode prevNode = head, currentNode = head;
+      while (currentNode?.next != null)
       {
-        if (head.next == null)
+        currentNode = currentNode.next;
+        if (prevNode.data == currentNode?.data)
         {
-          head = null;
+          prevNode.next = currentNode.next;
         }
         else
         {
-          head = head.next;
+          prevNode = currentNode;
         }
       }
-      else
-      {
-        SinglyLinkedListNode previous = head;
-        int i = 0;
-        while (i < position - 1)
-        {
-          previous = previous.next;
-          i++;
-        }
-        if (previous.next.next == null)
-        {
-          previous.next = null;
-        }
-        else
-        {
-          previous.next = previous.next.next;
-        }
-      }
+
       return head;
     }
 
     public override void CompleteChallenge()
     {
-      using StreamReader reader = new StreamReader(@"DeleteANode.txt");
+      using StreamReader reader = new StreamReader(@"DeleteAdjDup.txt");
 
-      SinglyLinkedList llist = new SinglyLinkedList();
+      int t = Convert.ToInt32(reader.ReadLine());
 
-      int llistCount = Convert.ToInt32(reader.ReadLine());
-
-      for (int i = 0; i < llistCount; i++)
+      for (int tItr = 0; tItr < t; tItr++)
       {
-        int llistItem = Convert.ToInt32(reader.ReadLine());
-        llist.InsertNode(llistItem);
+        SinglyLinkedList llist = new SinglyLinkedList();
+
+        int llistCount = Convert.ToInt32(reader.ReadLine());
+
+        for (int i = 0; i < llistCount; i++)
+        {
+          int llistItem = Convert.ToInt32(reader.ReadLine());
+          llist.InsertNode(llistItem);
+        }
+
+        SinglyLinkedListNode llist1 = Solve(llist.head);
+
+        PrintSinglyLinkedList(llist1, " ");
+        Console.WriteLine();
       }
 
-      int position = Convert.ToInt32(reader.ReadLine());
-
-      SinglyLinkedListNode llist_head = Solve(llist.head, position);
-
-      PrintSinglyLinkedList(llist_head, " ");
     }
 
     //Provided by HackerRank

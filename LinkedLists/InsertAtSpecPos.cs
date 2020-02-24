@@ -8,7 +8,7 @@ namespace LinkedLists
   {
     public InsertAtSpecPos()
     {
-      ChallengeTitle = "Insert at specific position of a Linked List";
+      ChallengeTitle = "Insert at specific position of a linked list";
     }
 
     /// <summary>

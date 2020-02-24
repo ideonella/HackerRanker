@@ -8,7 +8,7 @@ namespace LinkedLists
 	{
 		public InsertAtTail()
 		{
-			ChallengeTitle = "Insert at Tail of a Linked List";
+			ChallengeTitle = "Insert at Tail of a linked list";
 		}
 
 		/// <summary>
