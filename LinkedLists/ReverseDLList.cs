@@ -4,65 +4,34 @@ using System.IO;
 
 namespace LinkedLists
 {
-  public class InsertDLList : HackerRankController
+  public class ReverseDLList : HackerRankController
   {
-    public InsertDLList()
+    public ReverseDLList()
     {
-      ChallengeTitle = "Insert a node into a sorted doubly linked list";
+      ChallengeTitle = "Reverse a doubly linked list";
     }
 
     /// <summary>
-    /// Given a reference to the head of a doubly-linked list and an integer, data, 
-    /// create a new DoublyLinkedListNode object having data value data and insert it 
-    /// into a sorted linked list while maintaining the sort.
+    /// You’re given the pointer to the head node of a doubly linked list. Reverse the 
+    /// order of the nodes in the list. The head node might be NULL to indicate that the 
+    /// list is empty. Change the next and prev pointers of all the nodes so that the 
+    /// direction of the list is reversed. Return a reference to the head node of the 
+    /// reversed list. 
     /// </summary>
     /// <param name="head"></param>
     /// <param name="data"></param>
     /// <returns></returns>
-    static DoublyLinkedListNode Solve(DoublyLinkedListNode head, int data)
+    static DoublyLinkedListNode Solve(DoublyLinkedListNode head)
     {
-      DoublyLinkedListNode newNode = new DoublyLinkedListNode(data), traverse = head;
-      bool first = true;
 
-      if (head == null)
-      {
-        head = newNode;
-      }
-      else
-      {
-        //Not the pretiest thing I've ever seen but hey. It works and is linear.
-        while (traverse != null && newNode.prev == null && newNode.next == null)
-        {
-          if (traverse.data >= newNode.data)
-          {
-            newNode.prev = traverse.prev;
-            if (!first)
-            {
-              traverse.prev.next = newNode;
-            }
-            newNode.next = traverse;
-            traverse.prev = newNode;
-
-            head = first ? newNode : head;
-          }
-          else if (traverse.next == null)
-          {
-            traverse.next = newNode;
-            newNode.prev = traverse;
-          }
-          traverse = traverse.next;
-          first = false;
-        }
-      }
-
-      return head;
+      return null;
     }
 
     public override void CompleteChallenge()
     {
-      using StreamReader reader = new StreamReader(@"InsertDLList.txt");
+      using StreamReader reader = new StreamReader(@"ReverseDLList.txt");
 
-      int t = Convert.ToInt32(reader.ReadLine());
+      int t = Convert.ToInt32(Console.ReadLine());
 
       for (int tItr = 0; tItr < t; tItr++)
       {
@@ -76,9 +45,7 @@ namespace LinkedLists
           llist.InsertNode(llistItem);
         }
 
-        int data = Convert.ToInt32(reader.ReadLine());
-
-        DoublyLinkedListNode llist1 = Solve(llist.head, data);
+        DoublyLinkedListNode llist1 = Solve(llist.head);
 
         PrintDoublyLinkedList(llist1, " ");
         Console.WriteLine();
