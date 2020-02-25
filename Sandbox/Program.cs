@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Arrays;
 
 
 namespace Sandbox
@@ -50,6 +49,8 @@ namespace Sandbox
 			hackerRankControllers.Add(new LinkedLists.DeleteAdjDup());
 			hackerRankControllers.Add(new LinkedLists.FindMergePoint());
 			hackerRankControllers.Add(new LinkedLists.InsertDLList());
+			hackerRankControllers.Add(new LinkedLists.ReverseDLList());
+			hackerRankControllers.Add(new LinkedLists.CycleDetection());
 
 			Console.WriteLine("++ BEGIN LINKED LIST CHALLENGES ++");
 			foreach (HackerRankController ctrl in hackerRankControllers)
@@ -62,6 +63,23 @@ namespace Sandbox
 				Console.WriteLine("--------------------------------------------------");
 			}
 			Console.WriteLine("++ END LINKED LIST CHALLENGES ++");
+
+			//Stack challenges
+			hackerRankControllers = new List<HackerRankController>();
+
+			hackerRankControllers.Add(new Stacks.MaxElement());
+
+			Console.WriteLine("++ BEGIN STACK CHALLENGES ++");
+			foreach (HackerRankController ctrl in hackerRankControllers)
+			{
+				Console.WriteLine("BEGIN: " + ctrl.ChallengeTitle);
+				Console.WriteLine();
+				ctrl.CompleteChallenge();
+				Console.WriteLine();
+				Console.WriteLine("END: " + ctrl.ChallengeTitle);
+				Console.WriteLine("--------------------------------------------------");
+			}
+			Console.WriteLine("++ END STACK CHALLENGES ++");
 		}
 	}
 }

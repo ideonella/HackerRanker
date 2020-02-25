@@ -23,15 +23,28 @@ namespace LinkedLists
     /// <returns></returns>
     static DoublyLinkedListNode Solve(DoublyLinkedListNode head)
     {
-
-      return null;
+      DoublyLinkedListNode reverseHead = new DoublyLinkedListNode(0), prevNode;
+      if (head != null)
+      {
+        reverseHead.data = head.data;
+        head = head.next;
+        while (head != null)
+        {
+          prevNode = reverseHead;
+          reverseHead = head;
+          head = head.next;
+          reverseHead.next = prevNode;
+          prevNode.prev = reverseHead;
+        }
+      }
+      return reverseHead;
     }
 
     public override void CompleteChallenge()
     {
       using StreamReader reader = new StreamReader(@"ReverseDLList.txt");
 
-      int t = Convert.ToInt32(Console.ReadLine());
+      int t = Convert.ToInt32(reader.ReadLine());
 
       for (int tItr = 0; tItr < t; tItr++)
       {

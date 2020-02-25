@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BalancedTrees", "BalancedTr
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TreesAlt", "TreesAlt\TreesAlt.pyproj", "{DAAD0108-0EC7-4784-B988-AA58A8E156D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stacks", "Stacks\Stacks.csproj", "{BEF865B8-7472-40A5-B90A-A14C7B2CE75A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{612226AF-DF21-4B62-A3CC-BA4D10E65E4D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DAAD0108-0EC7-4784-B988-AA58A8E156D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DAAD0108-0EC7-4784-B988-AA58A8E156D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEF865B8-7472-40A5-B90A-A14C7B2CE75A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEF865B8-7472-40A5-B90A-A14C7B2CE75A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEF865B8-7472-40A5-B90A-A14C7B2CE75A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEF865B8-7472-40A5-B90A-A14C7B2CE75A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{E4A40C8C-CC89-4599-BC17-08DF7AC20ACF} = {46AA37F4-185D-406B-B72A-DE4DF9F38A61}
 		{E7FA0A9D-16B2-4EFE-91FA-D2D29847700E} = {46AA37F4-185D-406B-B72A-DE4DF9F38A61}
 		{612226AF-DF21-4B62-A3CC-BA4D10E65E4D} = {46AA37F4-185D-406B-B72A-DE4DF9F38A61}
+		{BEF865B8-7472-40A5-B90A-A14C7B2CE75A} = {46AA37F4-185D-406B-B72A-DE4DF9F38A61}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E63C8B4-5669-4790-8DDC-A0C4100697C0}

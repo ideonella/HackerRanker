@@ -1,140 +1,153 @@
 ﻿using HackerRankCtrl;
 using System;
 using System.IO;
+using System.Collections;
 
 namespace LinkedLists
 {
-	public class CycleDetection : HackerRankController
-	{
-		public CycleDetection()
-		{
-			ChallengeTitle = "Determine if a linked list is cyclical";
-		}
+  public class CycleDetection : HackerRankController
+  {
+    public CycleDetection()
+    {
+      ChallengeTitle = "Determine if a linked list is cyclical";
+    }
 
-		/// <summary>
-		/// A linked list is said to contain a cycle if any node is visited more than 
-		/// once while traversing the list. If there is a cycle, return true; 
-		/// otherwise, return false.
-		/// </summary>
-		/// <param name="head"></param>
-		/// <returns></returns>
-		static bool Solve(SinglyLinkedListNode head)
-		{
-			bool cyclical = false;
-			SinglyLinkedListNode tail = new SinglyLinkedListNode(0);
-			if (head != null)
-			{
-				SinglyLinkedListNode node = head;
-				while (node.next != null)
-				{
-					node = node.next;
-				}
-				node.next = tail;
-			}
+    /// <summary>
+    /// A linked list is said to contain a cycle if any node is visited more than 
+    /// once while traversing the list. If there is a cycle, return true; 
+    /// otherwise, return false.
+    /// </summary>
+    /// <param name="head"></param>
+    /// <returns></returns>
+    static bool Solve(SinglyLinkedListNode head)
+    {
+      bool cyclical = false;
 
-			return cyclical;
-		}
+      if (head != null)
+      {
+        int power = 1;
+        int lam = 1;
+        SinglyLinkedListNode slow = head;
+        SinglyLinkedListNode fast = slow?.next;
 
-		public override void CompleteChallenge()
-		{
-			using StreamReader reader = new StreamReader(@"CycleDetection.txt");
+        while (!Object.ReferenceEquals(slow, fast) && fast != null)
+        {
+          if (power == lam)
+          {
+            slow = fast;
+            power *= 2;
+            lam = 0;
+          }
+          fast = fast.next;
+          lam++;
+        }
 
-			int tests = Convert.ToInt32(reader.ReadLine());
+        cyclical = fast != null ? true : false;
+      }
 
-			for (int testsItr = 0; testsItr < tests; testsItr++)
-			{
-				int index = Convert.ToInt32(reader.ReadLine());
+      return cyclical;
+    }
 
-				SinglyLinkedList llist = new SinglyLinkedList();
+    public override void CompleteChallenge()
+    {
+      using StreamReader reader = new StreamReader(@"CycleDetection.txt");
 
-				int llistCount = Convert.ToInt32(reader.ReadLine());
+      int tests = Convert.ToInt32(reader.ReadLine());
 
-				for (int i = 0; i < llistCount; i++)
-				{
-					int llistItem = Convert.ToInt32(reader.ReadLine());
-					llist.InsertNode(llistItem);
-				}
+      for (int testsItr = 0; testsItr < tests; testsItr++)
+      {
+        int index = Convert.ToInt32(reader.ReadLine());
 
-				SinglyLinkedListNode extra = new SinglyLinkedListNode(-1);
-				SinglyLinkedListNode temp = llist.head;
+        SinglyLinkedList llist = new SinglyLinkedList();
 
-				for (int i = 0; i < llistCount; i++)
-				{
-					if (i == index)
-					{
-						extra = temp;
-					}
+        int llistCount = Convert.ToInt32(reader.ReadLine());
 
-					if (i != llistCount - 1)
-					{
-						temp = temp.next;
-					}
-				}
+        for (int i = 0; i < llistCount; i++)
+        {
+          int llistItem = Convert.ToInt32(reader.ReadLine());
+          llist.InsertNode(llistItem);
+        }
 
-				temp.next = extra;
+        SinglyLinkedListNode extra = new SinglyLinkedListNode(-1);
+        SinglyLinkedListNode temp = llist.head;
 
-				bool result = Solve(llist.head);
+        for (int i = 0; i < llistCount; i++)
+        {
+          if (i == index)
+          {
+            extra = temp;
+          }
 
-				Console.WriteLine((result ? 1 : 0));
-			}
-		}
+          if (i != llistCount - 1)
+          {
+            temp = temp.next;
+          }
+        }
 
-		//Provided by HackerRank
-		static void PrintSinglyLinkedList(SinglyLinkedListNode node, string sep)
-		{
-			while (node != null)
-			{
-				Console.WriteLine(node.data);
+        temp.next = extra;
 
-				node = node.next;
+        bool result = Solve(llist.head);
 
-				if (node != null)
-				{
-					Console.WriteLine(sep);
-				}
-			}
-		}
+        Console.WriteLine((result ? 1 : 0));
+      }
+    }
 
-		//Provided by HackerRank
-		class SinglyLinkedListNode
-		{
-			public int data;
-			public SinglyLinkedListNode next;
+    //Provided by HackerRank
+    static void PrintSinglyLinkedList(SinglyLinkedListNode node, string sep)
+    {
+      while (node != null)
+      {
+        Console.WriteLine(node.data);
 
-			public SinglyLinkedListNode(int nodeData)
-			{
-				this.data = nodeData;
-				this.next = null;
-			}
-		}
+        node = node.next;
 
-		//Provided by HackerRank
-		class SinglyLinkedList
-		{
-			public SinglyLinkedListNode head;
-			public SinglyLinkedListNode tail;
+        if (node != null)
+        {
+          Console.WriteLine(sep);
+        }
+      }
+    }
 
-			public SinglyLinkedList()
-			{
-				this.head = null;
-				this.tail = null;
-			}
+    //Provided by HackerRank
+    class SinglyLinkedListNode
+    {
+      public int data;
+      public SinglyLinkedListNode next;
 
-			public void InsertNode(int nodeData)
-			{
-				SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
+      public SinglyLinkedListNode(int nodeData)
+      {
+        this.data = nodeData;
+        this.next = null;
+      }
+    }
 
-				if (this.head == null)
-				{
-					this.head = node;
-				}
-				else
-				{
-					this.tail.next = node;
-				}
+    //Provided by HackerRank
+    class SinglyLinkedList
+    {
+      public SinglyLinkedListNode head;
+      public SinglyLinkedListNode tail;
 
-				this.tail = node;
-			}
-		}
-	}
+      public SinglyLinkedList()
+      {
+        this.head = null;
+        this.tail = null;
+      }
+
+      public void InsertNode(int nodeData)
+      {
+        SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
+
+        if (this.head == null)
+        {
+          this.head = node;
+        }
+        else
+        {
+          this.tail.next = node;
+        }
+
+        this.tail = node;
+      }
+    }
+  }
 }

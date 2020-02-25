@@ -10,6 +10,7 @@
     <ProjectReference Include="..\BalancedTrees\BalancedTrees.csproj" />
     <ProjectReference Include="..\LinkedLists\LinkedLists.csproj" />
     <ProjectReference Include="..\Trees\Trees.csproj" />
+		<ProjectReference Include="..\Stacks\Stacks.csproj" />
   </ItemGroup>
 
 </Project>
