@@ -50,7 +50,7 @@ namespace Sandbox
 			hackerRankControllers.Add(new LinkedLists.FindMergePoint());
 			hackerRankControllers.Add(new LinkedLists.InsertDLList());
 			hackerRankControllers.Add(new LinkedLists.ReverseDLList());
-			hackerRankControllers.Add(new LinkedLists.CycleDetection());
+		  hackerRankControllers.Add(new LinkedLists.CycleDetection());
 
 			Console.WriteLine("++ BEGIN LINKED LIST CHALLENGES ++");
 			foreach (HackerRankController ctrl in hackerRankControllers)
@@ -67,7 +67,11 @@ namespace Sandbox
 			//Stack challenges
 			hackerRankControllers = new List<HackerRankController>();
 
-			hackerRankControllers.Add(new Stacks.MaxElement());
+			//Massive input file just clutters everything up
+			//hackerRankControllers.Add(new Stacks.MaxElement());
+			hackerRankControllers.Add(new Stacks.EqualStacks());
+			hackerRankControllers.Add(new Stacks.BalancedBracket());
+			hackerRankControllers.Add(new Stacks.LargestRectangle());
 
 			Console.WriteLine("++ BEGIN STACK CHALLENGES ++");
 			foreach (HackerRankController ctrl in hackerRankControllers)
